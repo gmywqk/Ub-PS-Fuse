@@ -45,8 +45,6 @@ def knn_feature(seq_r, pos_r, seq):
     kNum = [2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]
     encodings = np.zeros((seq_r, 11))
 
-    # knndir = os.path.join(os.path.dirname(__file__), '../dataset/knn/')
-    # os.chdir(knndir)
     # 保存所有序列之间的距离，上三角矩阵，每个元素包含[标签，距离]
     myDistance = np.zeros((seq_r, (seq_r-1), 2))
     for i in range(seq_r):
@@ -87,15 +85,11 @@ seq_r = seq.shape[0]
 pos_feature, neg_feature = knn_feature(seq_r, pos_r, seq)
 
 # 保存特征
-# pos_dir = os.path.join(os.path.dirname(__file__), '../dataset/pos/')
-# os.chdir(pos_dir)
-np.save('Qiu_pos_knn_feature_train3.npy', pos_feature)
-# neg_dir = os.path.join(os.path.dirname(__file__), '../dataset/neg/')
-# os.chdir(neg_dir)
-np.save('Qiu_neg_knn_feature_train3.npy', neg_feature)
+np.save('pos_knn_feature_train3.npy', pos_feature)
+np.save('neg_knn_feature_train3.npy', neg_feature)
 
 if __name__ == '__main__':
-    a = np.load("Qiu_pos_knn_feature_train3.npy")
-    b = np.load("Qiu_neg_knn_feature_train3.npy")
+    a = np.load("pos_knn_feature_train.npy")
+    b = np.load("neg_knn_feature_train.npy")
     c = np.concatenate((a, b), axis=0)
-    np.save("Qiu_KNN_Train3.npy", c)
+    np.save("KNN_Train.npy", c)
