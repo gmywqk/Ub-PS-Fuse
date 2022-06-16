@@ -45,12 +45,7 @@ def train_model():
     print("train cbow models 5 .. Please wait patiently")
     sentences = word2vec.Text8Corpus(r'files/all_5.txt')
     word2vec.Word2Vec(sentences=sentences, min_count=0, size=300, window=5, compute_loss=True, iter=10, workers=8, sg=0, callbacks=[EpochLogger("l5")])
-    # print("train cbow models 6 .. Please wait patiently")
-    # sentences = word2vec.Text8Corpus(r'files/all_6.txt')
-    # word2vec.Word2Vec(sentences=sentences, min_count=0, size=300, window=5, compute_loss=True, iter=10, workers=8, sg=1, callbacks=[EpochLogger("l6")])
-    # print("train cbow models 7 .. Please wait patiently")
-    # sentences = word2vec.Text8Corpus(r'files/all_7.txt')
-    # word2vec.Word2Vec(sentences=sentences, min_count=0, size=300, window=5, compute_loss=True, iter=10, workers=8, sg=1, callbacks=[EpochLogger("l7")])
+  
 
 def get_features(file_path, model):
     '''
