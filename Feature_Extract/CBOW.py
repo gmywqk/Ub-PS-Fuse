@@ -94,22 +94,13 @@ def merge_features():
         model_5 = Word2Vec.load(r'files/l5.model.ckpt')
     else:
         model_5 = Word2Vec.load(r'files/last_l5.model.ckpt')
-    # if os.path.exists(r'files/l6.model.ckpt'):
-    #     model_6 = Word2Vec.load(r'files/l6.model.ckpt')
-    # else:
-    #     model_6 = Word2Vec.load(r'files/last_l6.model.ckpt')
-    # if os.path.exists(r'files/l7.model.ckpt'):
-    #     model_7 = Word2Vec.load(r'files//l7.model.ckpt')
-    # else:
-    #     model_7 = Word2Vec.load(r'files/last_l7.model.ckpt')
+    
     feautures_1 = get_features(r'files/all_1.txt', model_1.wv)
     feautures_2 = get_features(r'files/all_2.txt', model_2.wv)
     feautures_3 = get_features(r'files/all_3.txt', model_3.wv)
     feautures_4 = get_features(r'files/all_4.txt', model_4.wv)
     feautures_5 = get_features(r'files/all_5.txt', model_5.wv)
-    # feautures_6 = get_features(r'files/all_6.txt', model_6.wv)
-    # feautures_7 = get_features(r'files/all_7.txt', model_7.wv)
-    # CBOW_features = feautures_7
+   
     CBOW_features = np.concatenate([feautures_1, feautures_2, feautures_3, feautures_4, feautures_5], axis=1)
     np.save(r'files/CBOW_features_protein_test_Qiu.npy', CBOW_features)
 
