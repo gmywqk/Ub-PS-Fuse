@@ -1,3 +1,0 @@
-Five feature extraction methods were used in this study. 
-When predicting ubiquitinated proteins, the three feature extraction methods used were go-knn, skip gram and cbow; 
-When predicting ubiquitination sites, the three feature extraction methods used are skip gram, cbow and EAAC.
